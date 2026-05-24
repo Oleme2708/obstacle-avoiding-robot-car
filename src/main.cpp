@@ -111,6 +111,7 @@ void loop()
         }
         break;
     case STATE_TurnRight:
+        TurnRight();
         if (millis() - stateStartTime >= 500)
         {
             Stop();
