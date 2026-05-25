@@ -4,13 +4,10 @@
 #include <NewPing.h>
 #include <L298N.h>
 // sonar sensor setup
-#define SONAR_NUM 1
 #define MAX_DISTANCE 200
 #define trig_pin 12
 #define echo_pin 11
-NewPing Sonar[SONAR_NUM] = {
-    NewPing(trig_pin, echo_pin, MAX_DISTANCE), // trigger pin, echo pin, max distance
-};
+NewPing Sonar(trig_pin, echo_pin, MAX_DISTANCE); // trigger pin, echo pin, max distance
 // motors setup
 // motor A connections
 int ENA = 9;
@@ -53,6 +50,7 @@ int readPing();
 void setup()
 {
     Serial.begin(9600);
+    // Motors pin setup
     pinMode(ENA, OUTPUT);
     pinMode(ENB, OUTPUT);
     pinMode(IN1, OUTPUT);
@@ -111,6 +109,7 @@ void loop()
         }
         break;
     case STATE_TurnRight:
+        TurnRight();
         if (millis() - stateStartTime >= 500)
         {
             Stop();
@@ -186,12 +185,13 @@ void ChangeState(State newState)
 void Scan()
 {
     Stop();
-    distance_left = LookLeft();
+    distance_left = LookLeft(); // scanining left distance
     delay(200);
-    distance_right = LookRight();
+    distance_right = LookRight(); // scaning right distance
     delay(200);
-    myservo.write(115);
+    myservo.write(115); // servo turn back to middle
     delay(200);
+    // print distance on serial monitor for testing
     Serial.print("left: ");
     Serial.println(distance_left);
     Serial.print("right: ");
@@ -215,7 +215,7 @@ int LookRight()
 int readPing()
 {
     delay(50);
-    int cm = Sonar[0].ping_cm();
+    int cm = Sonar.ping_cm();
     if (cm == 0)
     {
         cm = MAX_DISTANCE;

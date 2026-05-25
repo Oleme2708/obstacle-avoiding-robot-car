@@ -5,9 +5,9 @@ A PlatformIO project for an obstacle avoiding robot car.
 ## Hardware
 - Arduino Uno
 - Ultrasonic sensor
-- Motor driver
+- Motor driver L298N
 - DC motors
-- Servo motors
+- Servo motor
 
 ## Software
 - VS Code
