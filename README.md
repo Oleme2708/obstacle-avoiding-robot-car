@@ -1,7 +1,7 @@
 # Obstacle Avoiding Robot Car
 
 A PlatformIO project for an obstacle avoiding robot car.
-
+![alt text](image.png)
 ## Hardware
 - Arduino Uno
 - Ultrasonic sensor
