@@ -14,6 +14,9 @@ If you are using Arduino IDE, you can still run this project:
     + install all the required libraries listed below.
     + select your Arduino board and upload the code normally.
 
+# Demo
+![alt text](Demo.png)
+
 # Project overview
 This project is an obstacle avoiding car built with Arduino, ultrasonic sensor, servo motor, DC motot, and motor driver.
 
