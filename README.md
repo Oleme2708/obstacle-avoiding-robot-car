@@ -48,10 +48,10 @@ The robot continuously moves forward until an obstacle is detected by the sensor
 + <L298N.h>
 
 # System design (state flow diagram)
-![alt text](image-1.png)
+![alt text](Stateflowdiagram.png)
 
 # Wiring diagram
-![alt text](image-2.png)
+![alt text](wirring_diagram.png)
 
 ## How to Use
 For Platform IO
